@@ -158,7 +158,7 @@ const CONFIG = {
       position: "Senior Java Developer",
       from: "09/2024",
       to: "Present",
-      logo: "/logos/0.jpeg",
+      logo: "/logos/0.png",
       companyLink: "https://ascendion.com/",
       achievements: [
         "Contributed to existing card authentication systems that process ISO-8583 messages for one of the top 5 U.S. Credit Card Companies serving over 10 partners. Familiarizing with complex transaction routing logic, authentication mechanisms, and format conversion across multiple partnerships and payload types, including Mastercard, Visa, and others.",
