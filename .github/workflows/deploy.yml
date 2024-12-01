@@ -42,7 +42,9 @@ jobs:
         run: npm ci
 
       - name: Build with vite
-        run: npm run build
+        run: |
+          echo "CLARITY_ID=${{ vars.CLARITY_ID }}" >> .env
+          CLARITY_ID=${{ vars.CLARITY_ID }} npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

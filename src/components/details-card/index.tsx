@@ -1,10 +1,10 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 import {
   AiFillGithub,
   AiFillInstagram,
-  AiFillMediumSquare,
-} from 'react-icons/ai';
-import { CgDribbble } from 'react-icons/cg';
+  AiFillMediumSquare
+} from "react-icons/ai";
+import { CgDribbble } from "react-icons/cg";
 import {
   FaBehanceSquare,
   FaBuilding,
@@ -17,18 +17,18 @@ import {
   FaSkype,
   FaStackOverflow,
   FaTelegram,
-  FaYoutube,
-} from 'react-icons/fa';
-import { FaSquareThreads } from 'react-icons/fa6';
-import { MdLocationOn } from 'react-icons/md';
-import { RiMailFill, RiPhoneFill } from 'react-icons/ri';
-import { SiResearchgate, SiTwitter, SiUdemy } from 'react-icons/si';
-import { Profile } from '../../interfaces/profile';
+  FaYoutube
+} from "react-icons/fa";
+import { FaSquareThreads } from "react-icons/fa6";
+import { MdLocationOn } from "react-icons/md";
+import { RiMailFill, RiPhoneFill } from "react-icons/ri";
+import { SiResearchgate, SiTwitter, SiUdemy, SiGooglescholar } from "react-icons/si";
+import { Profile } from "../../interfaces/profile";
 import {
   SanitizedGithub,
-  SanitizedSocial,
-} from '../../interfaces/sanitized-config';
-import { skeleton } from '../../utils';
+  SanitizedSocial
+} from "../../interfaces/sanitized-config";
+import { skeleton } from "../../utils";
 
 type Props = {
   profile: Profile | null;
@@ -38,7 +38,7 @@ type Props = {
 };
 
 const isCompanyMention = (company: string): boolean => {
-  return company.startsWith('@') && !company.includes(' ');
+  return company.startsWith("@") && !company.includes(" ");
 };
 
 const companyLink = (company: string): string => {
@@ -47,9 +47,9 @@ const companyLink = (company: string): string => {
 
 const getFormattedMastodonValue = (
   mastodonValue: string,
-  isLink: boolean,
+  isLink: boolean
 ): string => {
-  const [username, server] = mastodonValue.split('@');
+  const [username, server] = mastodonValue.split("@");
 
   if (isLink) {
     return `https://${server}/@${username}`;
@@ -72,10 +72,10 @@ const ListItem: React.FC<{
       </div>
       <div
         className={`${
-          skeleton ? 'flex-grow' : ''
-        } text-sm font-normal text-right mr-2 ml-3 ${link ? 'truncate' : ''}`}
+          skeleton ? "flex-grow" : ""
+        } text-sm font-normal text-right mr-2 ml-3 ${link ? "truncate" : ""}`}
         style={{
-          wordBreak: 'break-word',
+          wordBreak: "break-word"
         }}
       >
         <a
@@ -99,8 +99,8 @@ const OrganizationItem: React.FC<{
   skeleton?: boolean;
 }> = ({ icon, title, value, link, skeleton = false }) => {
   const renderValue = () => {
-    if (typeof value === 'string') {
-      return value.split(' ').map((company) => {
+    if (typeof value === "string") {
+      return value.split(" ").map((company) => {
         company = company.trim();
         if (!company) return null;
 
@@ -130,10 +130,10 @@ const OrganizationItem: React.FC<{
       </div>
       <div
         className={`${
-          skeleton ? 'flex-grow' : ''
-        } text-sm font-normal text-right mr-2 ml-3 space-x-2 ${link ? 'truncate' : ''}`}
+          skeleton ? "flex-grow" : ""
+        } text-sm font-normal text-right mr-2 ml-3 space-x-2 ${link ? "truncate" : ""}`}
         style={{
-          wordBreak: 'break-word',
+          wordBreak: "break-word"
         }}
       >
         {renderValue()}
@@ -159,10 +159,10 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
         <ListItem
           key={index}
           skeleton={true}
-          icon={skeleton({ widthCls: 'w-4', heightCls: 'h-4' })}
-          title={skeleton({ widthCls: 'w-24', heightCls: 'h-4' })}
-          value={skeleton({ widthCls: 'w-full', heightCls: 'h-4' })}
-        />,
+          icon={skeleton({ widthCls: "w-4", heightCls: "h-4" })}
+          title={skeleton({ widthCls: "w-24", heightCls: "h-4" })}
+          value={skeleton({ widthCls: "w-full", heightCls: "h-4" })}
+        />
       );
     }
 
@@ -172,7 +172,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
   return (
     <div className="card shadow-lg compact bg-base-100">
       <div className="card-body">
-        <div className="text-base-content text-opacity-60">
+        <div className="text-base-content text-opacity-80">
           {loading || !profile ? (
             renderSkeleton()
           ) : (
@@ -187,7 +187,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
               {profile.company && (
                 <OrganizationItem
                   icon={<FaBuilding />}
-                  title="Organization:"
+                  title="Company:"
                   value={profile.company}
                   link={
                     isCompanyMention(profile.company.trim())
@@ -208,6 +208,14 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   title="ResearchGate:"
                   value={social.researchGate}
                   link={`https://www.researchgate.net/profile/${social.researchGate}`}
+                />
+              )}
+              {social?.googleScholar && (
+                <ListItem
+                  icon={<SiGooglescholar />}
+                  title="GoogleScholar:"
+                  value={social.googleScholar.name}
+                  link={`https://scholar.google.com/citations?user=${social.googleScholar.user}`}
                 />
               )}
               {social?.twitter && (
@@ -279,7 +287,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   icon={<FaSquareThreads />}
                   title="Threads:"
                   value={social.threads}
-                  link={`https://www.threads.net/@${social.threads.replace('@', '')}`}
+                  link={`https://www.threads.net/@${social.threads.replace("@", "")}`}
                 />
               )}
               {social?.youtube && (
@@ -318,7 +326,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 <ListItem
                   icon={<FaStackOverflow />}
                   title="Stack Overflow:"
-                  value={social.stackoverflow.split('/').slice(-1)}
+                  value={social.stackoverflow.split("/").slice(-1)}
                   link={`https://stackoverflow.com/users/${social.stackoverflow}`}
                 />
               )}
@@ -327,10 +335,10 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   icon={<FaGlobe />}
                   title="Website:"
                   value={social.website
-                    .replace('https://', '')
-                    .replace('http://', '')}
+                    .replace("https://", "")
+                    .replace("http://", "")}
                   link={
-                    !social.website.startsWith('http')
+                    !social.website.startsWith("http")
                       ? `http://${social.website}`
                       : social.website
                   }

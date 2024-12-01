@@ -106,6 +106,11 @@ interface SEO {
   imageURL?: string;
 }
 
+interface GoogleScholar {
+  name?: string;
+  user?: string;
+}
+
 interface Social {
   /**
    * LinkedIn
@@ -126,6 +131,11 @@ interface Social {
    * ResearchGate username
    */
   researchGate?: string;
+
+  /**
+   * GoogleScholar display name and user
+   */
+  googleScholar?: GoogleScholar;
 
   /**
    * Facebook
@@ -215,11 +225,17 @@ interface Resume {
   fileUrl?: string;
 }
 
+interface Banner {
+  imageURL?: string;
+  name?: string;
+}
+
 interface Experience {
   company?: string;
   position?: string;
   from: string;
   to: string;
+  logo?: string;
   companyLink?: string;
 }
 
@@ -244,6 +260,10 @@ interface Publication {
   authors?: string;
   link?: string;
   description?: string;
+}
+
+interface Clarity {
+  id?: string;
 }
 
 interface GoogleAnalytics {
@@ -308,17 +328,17 @@ interface CustomTheme {
   /**
    * Base color of page
    */
-  'base-100'?: string;
+  "base-100"?: string;
 
   /**
    * Border radius of rounded-box
    */
-  '--rounded-box'?: string;
+  "--rounded-box"?: string;
 
   /**
    * Border radius of rounded-btn
    */
-  '--rounded-btn'?: string;
+  "--rounded-btn"?: string;
 }
 
 interface ThemeConfig {
@@ -385,6 +405,11 @@ interface Config {
   skills?: Array<string>;
 
   /**
+   * Banner config
+   */
+  banner?: Banner;
+
+  /**
    * Experience list
    */
   experiences?: Array<Experience>;
@@ -408,6 +433,11 @@ interface Config {
    * Resume
    */
   resume?: Resume;
+
+  /**
+   * Clarity config
+   */
+  clarity?: Clarity;
 
   /**
    * Google Analytics config

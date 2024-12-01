@@ -42,11 +42,17 @@ export interface SanitizedSEO {
   imageURL?: string;
 }
 
+export interface GoogleScholar {
+  user?: string;
+  name?: string;
+}
+
 export interface SanitizedSocial {
   linkedin?: string;
   twitter?: string;
   mastodon?: string;
   researchGate?: string;
+  googleScholar?: GoogleScholar;
   facebook?: string;
   instagram?: string;
   reddit?: string;
@@ -69,12 +75,19 @@ export interface SanitizedResume {
   fileUrl?: string;
 }
 
+export interface Banner {
+  imageURL?: string;
+  name?: string;
+}
+
 export interface SanitizedExperience {
   company?: string;
   position?: string;
   from: string;
   to: string;
   companyLink?: string;
+  logo?: string;
+  achievements?: Array<string>;
 }
 
 export interface SanitizedCertification {
@@ -121,9 +134,9 @@ export interface SanitizedCustomTheme {
   secondary: string;
   accent: string;
   neutral: string;
-  'base-100': string;
-  '--rounded-box': string;
-  '--rounded-btn': string;
+  "base-100": string;
+  "--rounded-box": string;
+  "--rounded-btn": string;
 }
 
 export interface SanitizedThemeConfig {
@@ -142,6 +155,7 @@ export interface SanitizedConfig {
   social: SanitizedSocial;
   resume: SanitizedResume;
   skills: Array<string>;
+  banner: Banner;
   experiences: Array<SanitizedExperience>;
   educations: Array<SanitizedEducation>;
   certifications: Array<SanitizedCertification>;

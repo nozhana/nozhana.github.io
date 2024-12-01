@@ -34,6 +34,8 @@ jobs:
         run: npm run prettier
 
       - name: Build
-        run: npm run build
         env:
           CI: ''
+        run: |
+          echo "CLARITY_ID=${{ vars.CLARITY_ID }}" >> .env
+          CLARITY_ID=${{ vars.CLARITY_ID }} npm run build

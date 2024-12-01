@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/45073703/177566625-9b84e793-4559-4475-ba54-8d3d5f4123d4.png" width="35%">
 
-  <h4 align="center">Easy to use automatic portfolio builder for every GitHub user!</h4>
+<h4 align="center">Easy to use automatic portfolio builder for every GitHub user!</h4>
 
   <p align="center">
     <a href="https://codeclimate.com/github/arifszn/gitprofile/maintainability"><img src="https://api.codeclimate.com/v1/badges/c60f42d7d0b61bd33e98/maintainability" /></a>
@@ -38,7 +38,10 @@
   <a href="#arifszn"><img src="https://github.com/arifszn/gitprofile/assets/45073703/4d2ccd45-e566-4743-bf61-cadc03ece54c" width="50%" alt="Shadow"/></a>
 </p>
 
-**GitProfile** is a powerful portfolio builder that allows you to create a stunning and personalized portfolio site in minutes, even if you have no coding experience. Simply provide your GitHub username, and GitProfile will automatically generate a portfolio. Best of all, you can easily deploy your portfolio to GitHub Pages with just a few clicks, making it accessible to the world in no time.
+**GitProfile** is a powerful portfolio builder that allows you to create a stunning and personalized portfolio site in
+minutes, even if you have no coding experience. Simply provide your GitHub username, and GitProfile will automatically
+generate a portfolio. Best of all, you can easily deploy your portfolio to GitHub Pages with just a few clicks, making
+it accessible to the world in no time.
 
 **Features:**
 
@@ -75,19 +78,24 @@ There are three ways to use **GitProfile**. Use any.
 
 These instructions will get you a copy of the project and deploy your portfolio online using GitHub Pages!
 
-- **Fork repo:** Click [here](https://github.com/arifszn/gitprofile/fork) to fork the repo so you have your own project to customize. A "fork" is a copy of a repository.
+- **Fork repo:** Click [here](https://github.com/arifszn/gitprofile/fork) to fork the repo so you have your own project
+  to customize. A "fork" is a copy of a repository.
 - **Rename repo:**
-  - If you want to host your portfolio at `https://<USERNAME>.github.io`, rename your forked repository to `username.github.io` in GitHub, where `username` is your GitHub username (or organization name).
-  - If you want to host your portfolio at `https://<USERNAME>.github.io/<REPO_NAME>` (e.g. `https://<USERNAME>.github.io/portfolio`), rename your forked repository to `<REPO_NAME>` (e.g. `portfolio`) in GitHub.
+    - If you want to host your portfolio at `https://<USERNAME>.github.io`, rename your forked repository
+      to `username.github.io` in GitHub, where `username` is your GitHub username (or organization name).
+    - If you want to host your portfolio at `https://<USERNAME>.github.io/<REPO_NAME>` (
+      e.g. `https://<USERNAME>.github.io/portfolio`), rename your forked repository to `<REPO_NAME>` (e.g. `portfolio`)
+      in GitHub.
 - **Enable workflows:** Go to your repo's **Actions** tab and enable workflows.
 
   ![Workflows](https://github.com/arifszn/gitprofile/assets/45073703/7e82f7d4-900c-4cb9-83f9-bcaa1ca2b910)
 
 - **Base Value:** Open `gitprofile.config.ts`, and change `base`'s value.
 
-  - If you are deploying to `https://<USERNAME>.github.io`, set `base` to `'/'`.
+    - If you are deploying to `https://<USERNAME>.github.io`, set `base` to `'/'`.
 
-  - If you are deploying to `https://<USERNAME>.github.io/<REPO_NAME>` (e.g. `https://<USERNAME>.github.io/portfolio`), then set `base` to `'/<REPO_NAME>/'` (e.g. `'/portfolio/'`).
+    - If you are deploying to `https://<USERNAME>.github.io/<REPO_NAME>` (
+      e.g. `https://<USERNAME>.github.io/portfolio`), then set `base` to `'/<REPO_NAME>/'` (e.g. `'/portfolio/'`).
 
   ```ts
   // gitprofile.config.ts
@@ -97,13 +105,20 @@ These instructions will get you a copy of the project and deploy your portfolio 
   }
   ```
 
-- **Commit the changes:** Now commit to your **main** branch with your changes. Wait a few minutes so that the CI/CD pipeline can publish your website to GitHub Pages. You can check the progress in the [Actions](https://github.com/arifszn/gitprofile/actions) tab.
+- **Commit the changes:** Now commit to your **main** branch with your changes. Wait a few minutes so that the CI/CD
+  pipeline can publish your website to GitHub Pages. You can check the progress in
+  the [Actions](https://github.com/arifszn/gitprofile/actions) tab.
 
-Your portfolio website will be live shortly. Any time you commit a change to the **main** branch, the website will be automatically updated. If you face any issue viewing the website, double-check the `base` value in the `gitprofile.config.ts` file. Also, check if **Source** is set to **GitHub Actions** in **Settings** ➜ **Pages** ➜ **Build and deployment**.
+Your portfolio website will be live shortly. Any time you commit a change to the **main** branch, the website will be
+automatically updated. If you face any issue viewing the website, double-check the `base` value in
+the `gitprofile.config.ts` file. Also, check if **Source** is set to **GitHub Actions** in **Settings** ➜ **Pages** ➜ *
+*Build and deployment**.
 
-If you wish to add a custom domain, no CNAME file is required. Just add it to your repo's **Settings** ➜ **Pages** ➜ **Custom domain**.
+If you wish to add a custom domain, no CNAME file is required. Just add it to your repo's **Settings** ➜ **Pages** ➜ *
+*Custom domain**.
 
-As this is a Vite project, you can also host your website to Netlify, Vercel, Heroku, or other popular services. Please refer to this [doc](https://vitejs.dev/guide/static-deploy.html) for a detailed deployment guide to other services.
+As this is a Vite project, you can also host your website to Netlify, Vercel, Heroku, or other popular services. Please
+refer to this [doc](https://vitejs.dev/guide/static-deploy.html) for a detailed deployment guide to other services.
 
 > [!NOTE]
 > If you are going to deploy using **Vercel**, remember to set the `base` as `/`.
@@ -141,7 +156,8 @@ As this is a Vite project, you can also host your website to Netlify, Vercel, He
 
 - Finally, visit `http://localhost:5173/gitprofile/` from your browser.
 
-> Alternatively, you can set up and run the project using Docker with **[Vail](https://github.com/arifszn/vail)**, a powerful tool for local development of JavaScript/TypeScript Apps.
+> Alternatively, you can set up and run the project using Docker with **[Vail](https://github.com/arifszn/vail)**, a
+> powerful tool for local development of JavaScript/TypeScript Apps.
 
 ## 🎨 Customization
 
@@ -213,6 +229,7 @@ const CONFIG = {
     twitter: 'arif_szn',
     mastodon: 'arifszn@mastodon.social',
     researchGate: '',
+    googleScholar: { name: '', user: '' },
     facebook: '',
     instagram: '',
     reddit: '',
@@ -467,7 +484,8 @@ Besides tracking visitors, it will track `click events` on projects and blog pos
 
 ### Hotjar
 
-**GitProfile** supports [hotjar](https://www.hotjar.com) to track visitor interaction and behavior. If you do not want to use Hotjar, keep the `id` empty.
+**GitProfile** supports [hotjar](https://www.hotjar.com) to track visitor interaction and behavior. If you do not want
+to use Hotjar, keep the `id` empty.
 
 ```ts
 // gitprofile.config.ts
@@ -498,7 +516,8 @@ const CONFIG = {
 
 ### PWA
 
-GitProfile is PWA enabled. The site can be installed as a Progressive Web App. To turn it off, set `enablePWA` to `false`.
+GitProfile is PWA enabled. The site can be installed as a Progressive Web App. To turn it off, set `enablePWA`
+to `false`.
 
 ![PWA](https://github.com/arifszn/gitprofile/assets/45073703/9dc7cc5c-4262-4445-a7a5-1e3566ef43fa)
 
@@ -508,7 +527,9 @@ Your avatar and bio will be fetched from GitHub automatically.
 
 ### Social Links
 
-You can link your social media services you're using, including LinkedIn, Twitter, Mastodon, ResearchGate, Facebook, Instagram, Reddit, Threads, YouTube, Udemy, Dribbble, Behance, Medium, dev, Stack Overflow, Skype, Telegram, personal website, phone and email.
+You can link your social media services you're using, including LinkedIn, Twitter, Mastodon, ResearchGate,
+GoogleScholar, Facebook, Instagram, Reddit, Threads, YouTube, Udemy, Dribbble, Behance, Medium, dev, Stack Overflow,
+Skype, Telegram, personal website, phone and email.
 
 ```ts
 // gitprofile.config.ts
@@ -725,7 +746,8 @@ Empty array will hide the publications section.
 
 ### Blog Posts
 
-If you have [medium](https://medium.com) or [dev](https://dev.to) account, you can show your recent blog posts in here just by providing your medium/dev username. You can limit how many posts to display (Max is `10`).
+If you have [medium](https://medium.com) or [dev](https://dev.to) account, you can show your recent blog posts in here
+just by providing your medium/dev username. You can limit how many posts to display (Max is `10`).
 
 ```ts
 // gitprofile.config.ts
