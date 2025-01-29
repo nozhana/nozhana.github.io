@@ -197,7 +197,7 @@ const CONFIG = {
     {
       company: "Routetitan",
       position: "Senior Software Engineer",
-      from: "02/2020",
+      from: "04/2021",
       to: "09/2021",
       logo: "/logos/3.png",
       companyLink: "https://routetitan.com",
@@ -209,11 +209,25 @@ const CONFIG = {
       ]
     },
     {
+      company: "Devolon",
+      position: "Senior Backend Developer",
+      from: "02/2020",
+      to: "02/2021",
+      logo: "/logos/4.png",
+      companyLink: "https://www.devolon.fi/",
+      achievements: [
+        "Architected and developed a fintech platform for children's financial management using microservices-based architecture, serving as an issuer for multiple branded card programs.",
+        "Designed sophisticated parental control features, including transaction monitoring, approval workflows, and programmable allowance systems.",
+        "Implemented comprehensive REST APIs and ISO-8583 message handling for mobile clients and partner companies, enabling seamless integration with the Mastercard network."
+        "Utilized Java, Spring, Quarkus, JPA, jPOS, PostgreSQL, AWS, Spock, JUnit, Mockito, LocalStack, Grafana, Bitbucket, Jira."
+      ]
+    },
+    {
       company: "Farazpardazan",
       position: "Senior Software Engineer",
       from: "12/2016",
       to: "01/2020",
-      logo: "/logos/4.png",
+      logo: "/logos/5.png",
       companyLink: "https://www.farazpardazan.com",
       achievements: [
         "Delivered the Hamrahcard Payment Assistant application, overseeing its growth to over 12 million users and managing 2 million daily financial transactions. This marked a significant contribution to the company’s portfolio and user base expansion.",
@@ -228,7 +242,7 @@ const CONFIG = {
       position: "Java Back-end Developer",
       from: "01/2015",
       to: "11/2016",
-      logo: "/logos/5.png",
+      logo: "/logos/6.png",
       companyLink: "https://www.partgames.com",
       achievements: [
         "Crafted a high-performance back-end service for an online physics game with 230K players, utilizing Java, Spring, MySQL, Redis, Vaadin, and WebSocket. Introduced comprehensive features, including real-time interactions, payment management, and a versatile back-office system for user and parameter management.",
