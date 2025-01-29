@@ -170,7 +170,7 @@ const CONFIG = {
     {
       company: "Indiana State University",
       position: "Senior Software Engineer (volunteer)",
-      from: "066/2024",
+      from: "06/2024",
       to: "09/2024",
       logo: "/logos/1.png",
       companyLink: "https://cs.indstate.edu",
