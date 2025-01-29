@@ -218,7 +218,7 @@ const CONFIG = {
       achievements: [
         "Architected and developed a fintech platform for children's financial management using microservices-based architecture, serving as an issuer for multiple branded card programs.",
         "Designed sophisticated parental control features, including transaction monitoring, approval workflows, and programmable allowance systems.",
-        "Implemented comprehensive REST APIs and ISO-8583 message handling for mobile clients and partner companies, enabling seamless integration with the Mastercard network."
+        "Implemented comprehensive REST APIs and ISO-8583 message handling for mobile clients and partner companies, enabling seamless integration with the Mastercard network.",
         "Utilized Java, Spring, Quarkus, JPA, jPOS, PostgreSQL, AWS, Spock, JUnit, Mockito, LocalStack, Grafana, Bitbucket, Jira."
       ]
     },
