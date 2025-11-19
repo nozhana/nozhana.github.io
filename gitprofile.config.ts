@@ -153,6 +153,10 @@ const CONFIG = {
     'SPM',
     'Linux'
   ],
+  banner: {
+    imageURL: "https://raw.githubusercontent.com/nozhana/nozhana.github.io/main/public/banner.jpeg",
+    name: "Nozhan Amiri Portfolio"
+  },
   experiences: [
     {
       company: 'GCo Apps',
