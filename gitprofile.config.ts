@@ -16,11 +16,11 @@ const CONFIG = {
       header: 'Github Projects',
       mode: 'automatic', // Mode can be: 'automatic' or 'manual'
       automatic: {
-        sortBy: 'stars', // Sort projects by 'stars' or 'updated'
-        limit: 8, // How many projects to display.
+        sortBy: 'updated', // Sort projects by 'stars' or 'updated'
+        limit: 6, // How many projects to display.
         exclude: {
-          forks: false, // Forked projects will not be displayed if set to true.
-          projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
+          forks: true, // Forked projects will not be displayed if set to true.
+          projects: ['nozhana/stocks-clone'], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
         },
       },
       // manual: {
@@ -29,7 +29,7 @@ const CONFIG = {
       // },
     },
     external: {
-      header: 'My Projects',
+      header: 'Projects',
       // To hide the `External Projects` section, keep it empty.
       projects: [
         // {
@@ -51,7 +51,50 @@ const CONFIG = {
       ],
     },
   },
-  seo: { title: 'Portfolio of Nozhan Amiri', description: 'Mid-Level iOS Developer', imageURL: '' },
+  seo: {
+    title: "Nozhan Amiri, Mid-Level iOS Engineer based in Tehran, Iran.",
+    description: "Mid-Level iOS Engineer, 4+ years in Swift, Objective-C, and mobile development.",
+    imageURL: "",
+    schema: {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      name: "Nozhan Amiri",
+      alternateName: [
+        "Nozhan",
+        "Sayed Nozhan Amiri Naini",
+        "nozhana",
+        "نوژن امیری",
+        "سید نوژن امیری نایینی",
+      ],
+      email: "nozhan.work@gmail.com",
+      familyName: "Amiri",
+      givenName: "Nozhan",
+      knowsLanguage: ["English", "Persian", "German"],
+      jobTitle: "Mid-Level iOS Engineer",
+      worksFor: {
+        "@type": "Organization",
+        name: "GCo Apps"
+      },
+      alumniOf: {
+        "@type": "EducationalOrganization",
+        name: "University of Kashan"
+      },
+      url: "https://nozhana.github.io",
+      image: "",
+      sameAs: [
+        "http://www.linkedin.com/in/nozhana",
+        "http://www.github.com/nozhana"
+      ],
+      workLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "75230",
+          addressLocality: "Tehran",
+          addressRegion: "Tehran"
+        }
+      }
+    }
+  },
   social: {
     linkedin: 'nozhana',
     x: 'get__swifty',
@@ -186,22 +229,22 @@ const CONFIG = {
     // },
   ],
   // Display articles from your medium or dev account. (Optional)
-  // blog: {
-  //   source: 'dev', // medium | dev
-  //   username: 'arifszn', // to hide blog section, keep it empty
-  //   limit: 2, // How many articles to display. Max is 10.
-  // },
+  blog: {
+    source: '', // medium | dev
+    username: '', // to hide blog section, keep it empty
+    limit: 0, // How many articles to display. Max is 10.
+  },
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
   },
   // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: { id: '157db58b19526', snippetVersion: 6 },
   themeConfig: {
-    defaultTheme: 'black',
+    defaultTheme: 'procyon',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
-    disableSwitch: false,
+    disableSwitch: true,
 
     // Should use the prefers-color-scheme media-query,
     // using user system preferences, instead of the hardcoded defaultTheme
@@ -249,6 +292,15 @@ const CONFIG = {
       'silk',
       'procyon',
     ],
+
+    // Custom theme, applied to the "procyon" theme.
+    customTheme: {
+      primary: "rgba(113,206,109,0.68)",
+      "base-100": "rgba(31,31,37,0.09)",
+      "base-400": "rgba(233,233,253,0.09)",
+      "--rounded-box": "1rem",
+      "--rounded-btn": "1rem"
+    }
   },
 
   // Optional Footer. Supports plain text or HTML.
@@ -258,7 +310,7 @@ const CONFIG = {
       rel="noreferrer"
     >GitProfile</a> and ❤️`,
 
-  enablePWA: true,
+  enablePWA: false,
 };
 
 export default CONFIG;
