@@ -117,6 +117,15 @@ const CONFIG = {
       from: 'October 2024',
       to: 'Present',
       companyLink: 'https://gcoapps.com',
+      achievements: [
+        'Sole developer of LOMO, a photography app focused on creative filters and retro aesthetics.',
+        'Sole developer of Recipin, an AI meal planner and recipe generator.',
+        'Contributed to Voix, a voice recorder app with AI integration for transcription and content summarization.',
+        'Architecting and developing high-performance SwiftUI applications, with a focus on maintainable, scalable code, adhering to SOLID principles.',
+        'Designing and implementing custom GPU-accelerated image filters using CoreImage, CIKernel, Metal, and GPUImage3, including fragment shaders for optimal performance.',
+        'Employing dependency injection to enhance modularity and testability.',
+        'Profiling and optimizing app performance with Instruments, reducing bottlenecks by over 50% in LOMO.'
+      ]
     },
     {
       company: 'Luminatech',
@@ -124,6 +133,14 @@ const CONFIG = {
       from: 'June 2022',
       to: 'October 2024',
       companyLink: 'https://tisitano.com',
+      achievements: [
+        'Architected key components of the iOS project, including a custom Markdown parser compatible with iOS 12+ using a bespoke tokenizer.',
+        'Migrated RxSwift pub/sub streams to Combine, improving maintainability and performance.',
+        'Connected the app to Google and Facebook marketing services, enabling Firebase/FB analytics and user engagement tracking.',
+        'Developed complex interfaces using UIKit, both programmatically with SnapKit and via Storyboards, optimizing for flexibility and maintainability.',
+        'Contributed to CI/CD pipelines with Fastlane and managed dependencies using CocoaPods/SPM.',
+        'Implemented a custom dependency injection system using a factory abstraction pattern.'
+      ]
     },
   ],
   certifications: [
@@ -180,7 +197,7 @@ const CONFIG = {
   // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: { id: '157db58b19526', snippetVersion: 6 },
   themeConfig: {
-    defaultTheme: 'lofi',
+    defaultTheme: 'black',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
