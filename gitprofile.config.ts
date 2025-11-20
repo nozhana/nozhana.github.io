@@ -119,7 +119,7 @@ const CONFIG = {
   },
   resume: {
     fileUrl:
-      'https://drive.google.com/file/d/13oCSExURkd-Eik-emOlYJUolRSiAwtnL/view?usp=sharing', // Empty fileUrl will hide the `Download Resume` button.
+      'https://raw.githubusercontent.com/nozhana/nozhana.github.io/main/public/resume.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'Swift',
