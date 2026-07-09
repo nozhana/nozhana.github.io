@@ -12,91 +12,146 @@ website: "https://nozhana.github.io"
 linkedin: "https://linkedin.com/in/nozhana"
 github: "https://github.com/nozhana"
 
-summary: "Software engineer with 9 years of experience building scalable backend systems and developer tools. Passionate about open source, clean APIs, and developer experience. Previously at two Berlin-based startups and one large tech company."
+summary: "I’m an iOS developer with 5+ years of expertise in Swift and modern iOS frameworks and 8+ years of hands-on software development experience. Passionate about building and shipping scalable, high-performance apps with clean architectures, CI/CD pipelines, and strong attention to UX."
 
 experience:
-  - company: "Meridian Technologies"
-    title: "Senior Software Engineer"
-    location: "Berlin, Germany (Remote)"
-    start: "Mar 2021"
+  - company: "Taaghche"
+    title: "Primary iOS Engineer"
+    location: "Tehran, Iran (On-site)"
+    start: "Dec 2025"
     end: "Present"
     highlights:
-      - "Redesigned core data pipeline processing 50M events/day, reducing p99 latency from 4s to 280ms"
-      - "Led migration from monolith to event-driven microservices across 6 teams"
-      - "Introduced internal developer platform that cut service onboarding from 3 days to 2 hours"
-      - "Mentored 3 junior engineers through structured 1:1s and design review sessions"
-    stack: ["Go", "Kafka", "Kubernetes", "PostgreSQL", "Terraform", "AWS"]
+      - "Worked on the iOS app for Taaghche, one of Iran's leading digital reading and audiobook platforms, serving over 50,000 monthly active users. As the primary iOS engineer, I was responsible for developing and maintaining the native iOS application, shipping major product initiatives, and improving application architecture, stability, and user experience."
+      - "Developed and launched the first native iOS version of Navaar, a podcast and audiobook platform acquired by Taaghche, by architecting a multi-flavor application supporting independent branding, assets, configuration, and distribution."
+      - "Designed and delivered an application-wide Dark Mode migration across 40+ screens in a legacy UIKit codebase, introducing a reusable theming system and eliminating extensive hard-coded UI styling."
+      - "Owned the complete iOS release process, including build/scheme configuration, code signing, provisioning profiles, testing, production deployments, and distribution on the App Store, Sibapp, and Sibche marketplaces."
+      - "Refactored key modules toward MVVM/Repository Pattern, improving maintainability and reducing technical debt within a 69k+ LOC mixed-language codebase."
+      - "Contributed to the local ePUB/PDF reader, audiobook player, download, search, analytics, and push notification modules used by tens of thousands of active users."
+      - "Maintained and extended a large codebase built with Swift, Objective-C, C++, UIKit, Combine, RxSwift, ReactiveCocoa, Realm, SQLite, AVKit, and BackgroundTasks."
+    stack:
+      [
+        "Swift",
+        "Objective-C",
+        "UIKit",
+        "Realm",
+        "SQLite",
+        "URLSession",
+        "Alamofire",
+        "RxSwift",
+        "RAC",
+        "AppMetrica",
+        "WebEngage",
+      ]
 
-  - company: "Stackfield GmbH"
-    title: "Backend Engineer"
-    location: "Munich, Germany"
-    start: "Jul 2018"
-    end: "Feb 2021"
+  - company: "GCo Apps"
+    title: "iOS Engineer"
+    location: "Tehran, Iran (On-site)"
+    start: "Oct 2024"
+    end: "Nov 2025"
     highlights:
-      - "Built real-time collaboration engine powering 200k daily active users"
-      - "Reduced infrastructure costs by 35% through query optimisation and caching strategy"
-      - "Maintained 99.98% uptime across 3 years of on-call rotations"
-    stack: ["Go", "Redis", "WebSockets", "PostgreSQL", "Docker"]
+      - "Sole developer of LOMO, a photography app focused on creative filters and retro aesthetics."
+      - "Sole developer of Recipin, an AI meal planner and recipe generator."
+      - "Contributed to Voix, a voice recorder app with AI integration for transcription and content summarization."
+      - "Architecting and developing high-performance SwiftUI applications with a focus on maintainable, scalable code, adhering to SOLID principles."
+      - "Designing and implementing custom GPU-accelerated image filters using CoreImage, CIKernel, Metal, and GPUImage3, including fragment shaders for optimal performance."
+      - "Profiling and optimizing app performance with Instruments, reducing bottlenecks by over 50% in LOMO."
+    stack:
+      [
+        "Swift",
+        "SwiftUI",
+        "SwiftData",
+        "Metal",
+        "GPUImage",
+        "Instruments",
+        "Firebase",
+      ]
 
-  - company: "Finleap GmbH"
-    title: "Software Engineer"
-    location: "Berlin, Germany"
-    start: "Sep 2015"
-    end: "Jun 2018"
+  - company: "Luminatech"
+    title: "iOS Engineer"
+    location: "Lisbon, Portual (Remote)"
+    start: "Jun 2022"
+    end: "Oct 2024"
     highlights:
-      - "Developed payment processing integrations for 12 European markets"
-      - "Led adoption of internal API standards adopted across 8 product teams"
-    stack: ["Python", "Django", "PostgreSQL", "React", "REST APIs"]
+      - "Architected key components of the iOS project, including a custom Markdown parser compatible with iOS 12+ using a bespoke tokenizer."
+      - "Migrated RxSwift pub/sub streams to Combine, improving maintainability and performance."
+      - "Connected the app to Google and Facebook marketing services, enabling Firebase/FB analytics and user engagement tracking."
+      - "Developed complex interfaces using UIKit, both programmatically with SnapKit and via Storyboards, optimizing for flexibility and maintainability."
+      - "Contributed to CI/CD pipelines with Fastlane and managed dependencies using CocoaPods/SPM."
+      - "Implemented a custom dependency injection system."
+    stack:
+      [
+        "Swift",
+        "UIKit",
+        "Alamofire",
+        "CoreData",
+        "Vision",
+        "Firebase",
+        "FB Marketplace",
+        "Google Analytics",
+      ]
 
 education:
-  - institution: "Technische Universität Berlin"
-    degree: "M.Sc. Computer Science"
-    location: "Berlin, Germany"
-    start: "2013"
-    end: "2015"
-    description: "Thesis: Adaptive load balancing in distributed key-value stores"
+  - institution: "University of Kashan"
+    degree: "A.Sc. Software Engineering"
+    location: "Kashan, Iran"
+    start: "2015"
+    end: "2019"
+    description: "Computer Engineering – Software"
 
-  - institution: "Universität Stuttgart"
-    degree: "B.Sc. Computer Science"
-    location: "Stuttgart, Germany"
-    start: "2010"
-    end: "2013"
+  - institution: "Shahid Ejei (NODET)"
+    degree: "High School Diploma"
+    location: "Isfahan, Iran"
+    start: "2011"
+    end: "2015"
+    description: "Mathematics"
 
 skills:
   - category: "Languages"
-    items: ["Go", "TypeScript", "Python", "Rust", "SQL"]
-  - category: "Infrastructure"
     items:
       [
-        "Kubernetes",
-        "Docker",
-        "AWS",
-        "Terraform",
-        "PostgreSQL",
-        "Redis",
-        "Kafka",
+        "Swift",
+        "Objective-C",
+        "Dart",
+        "Ruby",
+        "Metal",
+        "OpenGL",
+        "Go",
+        "Python",
+        "Javascript",
       ]
+  - category: "UI Frameworks"
+    items: ["Flutter", "UIKit", "SwiftUI", "Compose Multiplatform / KMP"]
+  - category: "Infrastructure"
+    items:
+      ["Kubernetes", "Docker", "PostgreSQL", "Redis", "Kafka", "Grafana/Loki"]
   - category: "Frontend"
-    items: ["React", "Next.js", "TailwindCSS"]
+    items: ["React", "Next.js", "TailwindCSS", "Astro", "Hugo"]
   - category: "Practices"
     items:
-      ["System Design", "API Design", "TDD", "Code Review", "Technical Writing"]
+      [
+        "System Design",
+        "Architectural Design Patterns",
+        "MVVM",
+        "Repository Pattern",
+        "Clean Architecture",
+        "API Design",
+        "TDD",
+        "Code Review",
+        "Technical Writing",
+        "DoCC Documentation",
+      ]
 
 certifications:
-  - name: "AWS Solutions Architect – Professional"
-    issuer: "Amazon Web Services"
-    date: "Nov 2022"
-    url: ""
-  - name: "Certified Kubernetes Administrator (CKA)"
-    issuer: "Cloud Native Computing Foundation"
-    date: "Apr 2021"
-    url: ""
+  - name: "Advanced Programming in Swift"
+    issuer: "Meta – Coursera"
+    date: "Feb 2024"
+    url: "https://www.coursera.org/account/accomplishments/verify/DXCSHKETM6S8"
 
 languages:
-  - language: "English"
+  - language: "Persian"
     level: "Native"
+  - language: "English"
+    level: "Fluent (C2)"
   - language: "German"
-    level: "Professional (C1)"
-  - language: "Spanish"
-    level: "Basic (A2)"
+    level: "Professional Working Proficiency (B2)"
 ---
