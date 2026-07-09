@@ -9,8 +9,8 @@ en:
   #     medium: "Jan 2, 2006"
   #     short: "01/02"
 
-de:
-  locale: de-DE
-  label: "Deutsch"
-  weight: 2
+# de:
+#   locale: de-DE
+#   label: "Deutsch"
+#   weight: 2
   
