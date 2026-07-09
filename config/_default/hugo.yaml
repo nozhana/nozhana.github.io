@@ -2,7 +2,7 @@ baseURL: https://nozhana.github.io/portfolio/
 locale: en
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
-title: Nozhan's Blog
+title: Nozhan Amiri
 # theme: "hugo-narrow"
 
 hasCJKLanguage: true
