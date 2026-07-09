@@ -1,97 +1,88 @@
+# main menu
 main:
   - name: Posts
     pageRef: /posts
     weight: 10
     params:
       icon: posts
-
+  
   - name: Archives
     pageRef: /archives
     weight: 20
     params:
       icon: archive
 
-  # Example: parent item with dropdown submenu children
   - name: More
     weight: 30
+
+  - name: Projects
+    weight: 1
+    pageRef: /projects
+    parent: More
     params:
-      icon: layers
+      icon: projects
 
   - name: Categories
-    weight: 1
+    weight: 2
     pageRef: /categories
     parent: More
     params:
       icon: categories
 
   - name: Tags
-    weight: 2
+    weight: 3
     pageRef: /tags
     parent: More
     params:
       icon: tags
 
-  - name: Series
-    weight: 3
-    pageRef: /series
-    parent: More
-    params:
-      icon: bookmark
-
-  - name: Projects
-    weight: 4
-    pageRef: /projects
-    parent: More
-    params:
-      icon: projects
-
+  # - name: Series
+  #   weight: 4
+  #   pageRef: /series
+  #   parent: More
+  #   params:
+  #     icon: bookmark
 
 
 # footer menu
 footer:
-  - name: Timeline
-    pageRef: /timeline
-    weight: 10
-    params:
-      icon: chart
-
   - name: About
     pageRef: /about
-    weight: 20
+    weight: 10
     params:
       icon: about
 
   - name: Resume
     pageRef: /resume
-    weight: 25
+    weight: 15
     params:
       icon: file-text
 
   - name: RSS Feed
     url: /index.xml
-    weight: 30
+    weight: 20
     params:
       icon: rss
 
 # footer social link
 social:
   - name: GitHub
-    url: https://github.com/username
+    url: https://github.com/nozhana
     weight: 10
     params:
       icon: github
   - name: Twitter
-    url: https://twitter.com/username
+    url: https://x.com/get__swifty
     weight: 20
     params:
       icon: twitter
   - name: LinkedIn
-    url: https://linkedin.com/in/username
+    url: https://linkedin.com/in/nozhana
     weight: 30
     params:
       icon: linkedin
   - name: Email
-    url: mailto:your.email@example.com
+    url: mailto:nozhan.work@gmail.com
     weight: 40
     params:
       icon: email

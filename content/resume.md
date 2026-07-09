@@ -1,16 +1,16 @@
 ---
 title: "Resume"
 layout: "resume"
-description: "Professional resume of Jane Doe"
+description: "Resume | Nozhan Amiri | iOS Engineer, Mobile software architect"
 
-name: "Jane Doe"
-jobtitle: "Senior Software Engineer"
-location: "Berlin, Germany"
-email: "alex@example.com"
-phone: "+49 30 1234 5678"
-website: "https://alexrivera.dev"
-linkedin: "https://linkedin.com/in/alexrivera"
-github: "https://github.com/alexrivera"
+name: "Nozhan Amiri"
+jobtitle: "iOS Engineer, Mobile software architect"
+location: "Tehran, Iran"
+email: "nozhan.work@gmail.com"
+phone: "+98 913 269 8743"
+website: "https://nozhana.github.io"
+linkedin: "https://linkedin.com/in/nozhana"
+github: "https://github.com/nozhana"
 
 summary: "Software engineer with 9 years of experience building scalable backend systems and developer tools. Passionate about open source, clean APIs, and developer experience. Previously at two Berlin-based startups and one large tech company."
 
@@ -66,11 +66,21 @@ skills:
   - category: "Languages"
     items: ["Go", "TypeScript", "Python", "Rust", "SQL"]
   - category: "Infrastructure"
-    items: ["Kubernetes", "Docker", "AWS", "Terraform", "PostgreSQL", "Redis", "Kafka"]
+    items:
+      [
+        "Kubernetes",
+        "Docker",
+        "AWS",
+        "Terraform",
+        "PostgreSQL",
+        "Redis",
+        "Kafka",
+      ]
   - category: "Frontend"
     items: ["React", "Next.js", "TailwindCSS"]
   - category: "Practices"
-    items: ["System Design", "API Design", "TDD", "Code Review", "Technical Writing"]
+    items:
+      ["System Design", "API Design", "TDD", "Code Review", "Technical Writing"]
 
 certifications:
   - name: "AWS Solutions Architect – Professional"

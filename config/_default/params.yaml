@@ -16,7 +16,7 @@ author:
   name: "Nozhan Amiri"
   title: "iOS Engineer, Swift enthusiast, Mobile software architect"
   description: "Developing iOS applications with UIKit and SwiftUI since 2021."
-  avatar: "/images/avatar.svg"
+  avatar: "/images/profile.jpg"
   social:
     - name: "GitHub"
       url: "https://github.com/nozhana"
@@ -25,7 +25,7 @@ author:
       url: "https://twitter.com/get__swifty"
       icon: "twitter"
     - name: "Email"
-      url: "mailto:nozhan.work@example.com"
+      url: "mailto:nozhan.work@gmail.com"
       icon: "email"
 
 # Header configuration (modularized)
@@ -104,8 +104,8 @@ home:
   contentOrder:
     - author-section
     - page-content
-    - recent-posts
     - featured-projects.html
+    - recent-posts
 
 # Post configuration
 post:
