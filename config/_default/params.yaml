@@ -1,9 +1,9 @@
 # Basic site info with SEO
-description: "A modern, clean, and minimal Hugo theme built with Tailwind CSS 4.0. Support custom themes, dark mode, and responsive design."
+description: "Nozhan's personal blog."
 keywords: ["Hugo", "Blog", "Theme", "Technology", "Programming"]
-defaultAuthor: "Hugo Narrow"
+defaultAuthor: "Nozhan Amiri"
 language: "en"
-shortName: "Hugo Narrow" # PWA
+shortName: "Nozhan Amiri" # PWA
 images:
   - "/images/og-default.avif"
 
@@ -13,19 +13,19 @@ favicon:
 
 # Author info
 author:
-  name: "Hugo Narrow"
-  title: "A Clean and Minimal Hugo Theme"
-  description: "Focused on content and user experience."
+  name: "Nozhan Amiri"
+  title: "iOS Engineer, Swift enthusiast, Mobile software architect"
+  description: "Developing iOS applications with UIKit and SwiftUI since 2021."
   avatar: "/images/avatar.svg"
   social:
     - name: "GitHub"
-      url: "https://github.com/username"
+      url: "https://github.com/nozhana"
       icon: "github"
     - name: "Twitter"
-      url: "https://twitter.com/username"
+      url: "https://twitter.com/get__swifty"
       icon: "twitter"
     - name: "Email"
-      url: "mailto:hello@example.com"
+      url: "mailto:nozhan.work@example.com"
       icon: "email"
 
 # Header configuration (modularized)
@@ -113,7 +113,7 @@ post:
   relatedPostsCount: 3 # posts number
   license:
     show: true
-    author: "Hugo Narrow"
+    author: "Nozhan Amiri"
     name: "CC BY-NC-SA 4.0"
     description: "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Please attribute the source, use non-commercially, and maintain the same license."
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
