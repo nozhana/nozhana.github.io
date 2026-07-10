@@ -1,11 +1,11 @@
 # Basic site info with SEO
-description: "Nozhan's personal blog."
+description: "Nozhan's personal website."
 keywords: ["Hugo", "Blog", "Theme", "Technology", "Programming"]
 defaultAuthor: "Nozhan Amiri"
 language: "en"
 shortName: "Nozhan Amiri" # PWA
 images:
-  - "/images/og-default.avif"
+  - "/images/logo.svg"
 
 # Favicon
 favicon:
