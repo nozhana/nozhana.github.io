@@ -229,7 +229,7 @@ codeblock:
     enabled: true
     defaultState: expanded # expanded, collapsed
     autoCollapseLines: 30
-    autoCollapseHeight: 400
+    autoCollapseHeight: 500
     collapsedHeight: 120
 
 # Reading progress
