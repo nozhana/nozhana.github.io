@@ -155,3 +155,5 @@ languages:
   - language: "German"
     level: "Professional Working Proficiency (B2)"
 ---
+
+{{< button text="Download PDF" url="/portfolio/resume.pdf" icon="file-text" size="lg" variant="outline" />}}
