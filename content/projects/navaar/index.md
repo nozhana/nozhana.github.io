@@ -1,7 +1,7 @@
 ---
 title: "Navaar"
 date: "2026-07-10T03:04:25+03:30"
-draft: true
+draft: false
 slug: navaar
 summary: "An Iran-based podcast and audiobook app with thousands of users."
 featured: true

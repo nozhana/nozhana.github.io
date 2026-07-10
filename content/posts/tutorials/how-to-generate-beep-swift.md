@@ -1,7 +1,7 @@
 ---
 title: "How to generate a beep with Swift"
 date: "2026-07-10T04:26:19+03:30"
-draft: true
+draft: false
 summary: "This article walks you through configuring an audio engine to play a generated beep."
 categories: ["tutorials"]
 tags: ["iOS", "AVKit"]

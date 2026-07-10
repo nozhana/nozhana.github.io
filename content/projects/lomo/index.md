@@ -1,7 +1,7 @@
 ---
 title: "Lomo"
 date: "2026-07-10T03:36:27+03:30"
-draft: true
+draft: false
 slug: lomo
 summary: "A vintage-style camera app with multiple filters powered by CoreImage and Metal."
 featured: true
