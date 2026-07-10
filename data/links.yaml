@@ -1,0 +1,6 @@
+tool:
+  - id: coreimage-filter-reference
+    title: Core Image Filter Reference
+    description: Reference guide for all Core Image Filters.
+    url: https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/
+    icon: /images/apple.svg
