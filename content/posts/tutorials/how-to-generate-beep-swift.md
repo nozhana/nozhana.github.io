@@ -290,28 +290,114 @@ final class BeepPlayer {
 
 Here's how to integrate a `BeepPlayer` instance into your user interface.
 
-### Create a beep button
+### Create a beeping button
 
 Let's create a button that plays a beep when held and stops when released.
+
+This behavior is usually most associated with morse transmitters.
 
 Both SwiftUI and UIKit implementations are provided.
 
 {{< tabs >}}
 {{< tab label="SwiftUI" >}}
 
-#### Install on a SwiftUI View
+#### Make a SwiftUI BeepButton
 
 Invoke `startEngine` in a view's `onAppear`.
 
-```swift {lineNos=true filename=BeepButton.swift, hl_lines=[8]}
+```swift {lineNos=true filename=BeepButton.swift, hl_lines=[4,10]}
 // BeepButton.swift
 
 struct BeepButton: View {
     @State private var beeper = BeepPlayer()
 
     var body: some View {
-        // ...
-        .onAppear(perform: beeper.startEngine)
+        Circle()
+            .fill(.red)
+            .frame(maxWidth: 200, maxHeight: 200)
+            .onAppear(perform: beeper.startEngine)
+    }
+}
+```
+
+Note that we're decorating the `beeper` with a `@State` wrapper to prevent it from being
+killed and recreated between state changes.
+
+Now let's create a `DragGesture` and register it on our content
+to track the user interaction on the view.
+
+```swift {lineNos=true filename=BeepButton.swift hl_lines=[5,8,9,10,11,12,13,14,15,16,17,18,23]}
+// BeepButton.swift
+
+struct BeepButton: View {
+    @State private var beeper = BeepPlayer()
+    @State private var isPressed = false
+
+    var body: some View {
+        let drag = DragGesture(minimumDistance: .zero)
+            .onChanged { _ in
+                if !isPressed {
+                    isPressed = true
+                    beeper.beep()
+                }
+            }
+            .onEnded { _ in
+                isPressed = false
+                beeper.stopBeep()
+            }
+
+        Circle()
+            .fill(.red)
+            .frame(maxWidth: 200, maxHeight: 200)
+            .gesture(drag)
+            .onAppear(perform: beeper.startEngine)
+    }
+}
+```
+
+We can customize the button label content using generics, and
+change the opacity upon pressing.
+
+```swift {lineNos=true filename=BeepButton.swift hl_lines=[3,7,22,23]}
+// BeepButton.swift
+
+struct BeepButton<Label>: View where Label: View {
+    @State private var beeper = BeepPlayer()
+    @State private var isPressed = false
+
+    @ViewBuilder var label: @escaping () -> Label
+
+    var body: some View {
+        let drag = DragGesture(minimumDistance: .zero)
+            .onChanged { _ in
+                if !isPressed {
+                    isPressed = true
+                    beeper.beep()
+                }
+            }
+            .onEnded { _ in
+                isPressed = false
+                beeper.stopBeep()
+            }
+
+        label()
+            .opacity(isPressed ? 0.85 : 1.0)
+            .gesture(drag)
+            .onAppear(perform: beeper.startEngine)
+    }
+}
+```
+
+Now we have a button that beeps.
+
+```swift {lineNos=true filename=SomeView.swift}
+struct SomeView: View {
+    var body: some View {
+        BeepButton {
+            Circle()
+                .fill(.red)
+                .frame(maxWidth: 200, maxHeight: 200)
+        }
     }
 }
 ```
@@ -319,15 +405,17 @@ struct BeepButton: View {
 {{< /tab >}}
 {{< tab label="UIKit" >}}
 
-#### Install on a UIView
+#### Make a beeping UIButton
 
 Invoke `startEngine` in `init`.
 
-```swift {lineNos=true filename=BeepButton.swift hl_lines=[17]}
+```swift {lineNos=true filename=BeepButton.swift hl_lines=[19]}
 // BeepButton.swift
 
 final class BeepButton: UIButton {
     private let beeper = BeepPlayer()
+
+    private var isPressed = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -345,9 +433,44 @@ final class BeepButton: UIButton {
 }
 ```
 
+Logically, we need two targets to detect user press (`touchDown` and `touchUp`),
+but the use case for the button usually requires a "discard" action as well,
+and that's when the user releases their finger outside of the bounds of the receiver.
+
+So let's add three targets with this use case in mind.
+
+```swift {lineNos=true filename=BeepButton.swift, hl_lines=[3]}
+    private func commonInit() {
+        beeper.startEngine()
+        setupTargets()
+    }
+
+    private func setupTargets() {
+        addTarget(self, action: #selector(touchDown), for: .touchDown)
+        addTarget(self, action: #selector(touchUp), for: .touchUpInside)
+        addTarget(self, action: #selector(discard), for: .touchUpOutside)
+    }
+
+    @objc private func touchDown() {
+        guard !isPressed else { return }
+        isPressed = true
+        beeper.beep()
+    }
+
+    @objc private func touchUp() {
+        guard isPressed else { return }
+        isPressed = false
+        beeper.stopBeep()
+    }
+
+    @objc private func discard() {
+        // If you want different functionality on discard,
+        // you need to implement this method.
+        touchUp()
+    }
+```
+
+Now we have a `UIButton` that beeps.
+
 {{< /tab >}}
 {{< /tabs >}}
-
----
-
-#### _Work In Progress_
