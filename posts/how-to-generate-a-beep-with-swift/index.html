@@ -682,14 +682,14 @@ and that&rsquo;s when the user releases their finger outside of the bounds of th
 </span></span><span class=line><span class=ln>10</span><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=ln>11</span><span class=cl>
 </span></span><span class=line><span class=ln>12</span><span class=cl>    <span class=kr>@objc</span> <span class=kd>private</span> <span class=kd>func</span> <span class=nf>touchDown</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=ln>13</span><span class=cl>        <span class=k>guard</span> <span class=o>!</span><span class=n>isPressing</span> <span class=k>else</span> <span class=p>{</span> <span class=k>return</span> <span class=p>}</span>
-</span></span><span class=line><span class=ln>14</span><span class=cl>        <span class=n>isPressing</span> <span class=p>=</span> <span class=kc>true</span>
+</span></span><span class=line><span class=ln>13</span><span class=cl>        <span class=k>guard</span> <span class=o>!</span><span class=n>isPressed</span> <span class=k>else</span> <span class=p>{</span> <span class=k>return</span> <span class=p>}</span>
+</span></span><span class=line><span class=ln>14</span><span class=cl>        <span class=n>isPressed</span> <span class=p>=</span> <span class=kc>true</span>
 </span></span><span class=line><span class=ln>15</span><span class=cl>        <span class=n>beeper</span><span class=p>.</span><span class=n>beep</span><span class=p>()</span>
 </span></span><span class=line><span class=ln>16</span><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=ln>17</span><span class=cl>
 </span></span><span class=line><span class=ln>18</span><span class=cl>    <span class=kr>@objc</span> <span class=kd>private</span> <span class=kd>func</span> <span class=nf>touchUp</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=ln>19</span><span class=cl>        <span class=k>guard</span> <span class=n>isPressing</span> <span class=k>else</span> <span class=p>{</span> <span class=k>return</span> <span class=p>}</span>
-</span></span><span class=line><span class=ln>20</span><span class=cl>        <span class=n>isPressing</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=ln>19</span><span class=cl>        <span class=k>guard</span> <span class=n>isPressed</span> <span class=k>else</span> <span class=p>{</span> <span class=k>return</span> <span class=p>}</span>
+</span></span><span class=line><span class=ln>20</span><span class=cl>        <span class=n>isPressed</span> <span class=p>=</span> <span class=kc>false</span>
 </span></span><span class=line><span class=ln>21</span><span class=cl>        <span class=n>beeper</span><span class=p>.</span><span class=n>stopBeep</span><span class=p>()</span>
 </span></span><span class=line><span class=ln>22</span><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=ln>23</span><span class=cl>
@@ -707,13 +707,13 @@ addTarget(self, action: #selector(touchUp), for: .touchUpInside)
 addTarget(self, action: #selector(discard), for: .touchUpOutside)
 }
 @objc private func touchDown() {
-guard !isPressing else { return }
-isPressing = true
+guard !isPressed else { return }
+isPressed = true
 beeper.beep()
 }
 @objc private func touchUp() {
-guard isPressing else { return }
-isPressing = false
+guard isPressed else { return }
+isPressed = false
 beeper.stopBeep()
 }
 @objc private func discard() {
