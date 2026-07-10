@@ -7,6 +7,8 @@ summary: "An Iran-based podcast and audiobook app with thousands of users."
 featured: true
 tags:
   - iOS
+  - Swift
+  - Objective-C
   - UIKit
   - AVKit
   - PDFKit
