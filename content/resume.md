@@ -117,10 +117,13 @@ skills:
         "OpenGL",
         "Go",
         "Python",
-        "Javascript",
+        "Typescript",
       ]
   - category: "UI Frameworks"
-    items: ["Flutter", "UIKit", "SwiftUI", "Compose Multiplatform / KMP"]
+    items: ["UIKit", "SwiftUI", "Flutter", "Compose Multiplatform / KMP"]
+  - category: "Tools"
+    items:
+      ["Instruments", "AppMetrica", "WebEngage", "Cocoapods", "Carthage", "SPM"]
   - category: "Infrastructure"
     items:
       ["Kubernetes", "Docker", "PostgreSQL", "Redis", "Kafka", "Grafana/Loki"]
@@ -138,7 +141,6 @@ skills:
         "TDD",
         "Code Review",
         "Technical Writing",
-        "DoCC Documentation",
       ]
 
 certifications:
