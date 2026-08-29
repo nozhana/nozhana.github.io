@@ -3,7 +3,7 @@ title: "From LUT Image to CIFilter"
 date: "2026-07-10T16:23:24+03:30"
 draft: false
 summary: "Leverage Apple's CoreImage library to create stunning photo filters from Color Lookup Table images published by photographers and graphists."
-cover: "cover.png"
+cover: "/images/lut-filters-coreimage/cover.png"
 categories: ["tutorials"]
 tags: ["iOS", "Swift", "CoreImage", "Image Processing"]
 ---
@@ -128,9 +128,9 @@ So let's bridge that gap.
 
 In this article we'll build a reusable `CIFilter` subclass that accepts a standard LUT image and converts it into the format expected by `CIColorCube`.
 
-![Standard LUT Image](lut-default.png "Standard LUT Image")
-!["Classic Chrome" LUT Image](lut-classic-chrome.png '"Classic Chrome" LUT Image')
-!["Kodachrome" LUT Image](lut-kodachrome.png '"Kodachrome" LUT Image')
+![Standard LUT Image](/images/lut-filters-coreimage/lut-default.png "Standard LUT Image")
+!["Classic Chrome" LUT Image](/images/lut-filters-coreimage/lut-classic-chrome.png '"Classic Chrome" LUT Image')
+!["Kodachrome" LUT Image](/images/lut-filters-coreimage/lut-kodachrome.png '"Kodachrome" LUT Image')
 
 _<figcaption>Samples of LUT 64x64 LUT images used in this project.</figcaption>_
 
@@ -474,7 +474,7 @@ let output = filter.outputImage
 
 The nice part is that callers never need to think about 3D cubes, slice layouts, or pixel conversion. They simply provide a LUT image and get back a standard `CIFilter` that plugs seamlessly into the rest of the Core Image pipeline.
 
-![LUT Comparison](comparison.png "LUT filters applied to an image.")
+![LUT Comparison](/images/lut-filters-coreimage/comparison.png "LUT filters applied to an image.")
 
 ### Full Implementation
 
