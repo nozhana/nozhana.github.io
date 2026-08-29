@@ -104,7 +104,8 @@ content:
         required: true
       - name: categories
         type: string
-        list: true
+        default: "projects"
+        readonly: true
       - name: tags
         type: string
         list: true
