@@ -1,0 +1,103 @@
+media: media
+content:
+  - name: posts
+    label: Posts
+    type: group
+    items:
+      - name: tutorials
+        label: Tutorials
+        type: collection
+        path: content/posts/tutorials
+        fields:
+          - name: title
+            type: string
+          - name: date
+            type: date
+            options:
+              time: true
+          - name: summary
+            type: text
+          - name: categories
+            type: string
+            list: true
+          - name: tags
+            type: string
+            list: true
+          - name: body
+            type: rich-text
+      - name: private
+        label: Private Posts
+        type: collection
+        path: content/posts/privates
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: date
+            type: date
+            required: true
+            options:
+              time: true
+          - name: summary
+            type: text
+            required: true
+          - name: categories
+            type: string
+            list: true
+          - name: tags
+            type: string
+            list: true
+          - name: body
+            type: rich-text
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: date
+        type: date
+        required: true
+        options:
+          time: true
+      - name: slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        options:
+          minlength: 3
+          maxlength: 80
+      - name: summary
+        type: text
+        required: true
+      - name: featured
+        type: boolean
+        required: true
+      - name: categories
+        type: string
+        list: true
+      - name: tags
+        type: string
+        list: true
+      - name: cover
+        type: image
+      - name: link
+        type: string
+        required: true
+        pattern:
+          regex: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+          message: "Invalid URL"
+      - name: status
+        type: select
+        options:
+          values:
+            - name: in-progress
+              label: In Progress
+            - name: completed
+              label: Completed
+  - name: resume
+    label: Resume
+    type: file
+    path: content/resume.md
