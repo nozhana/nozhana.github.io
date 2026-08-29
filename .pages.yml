@@ -113,6 +113,119 @@ content:
     label: Resume
     type: file
     path: content/resume.md
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: layout
+        type: string
+        readonly: true
+      - name: description
+        type: text
+        required: true
+      - name: name
+        type: string
+        required: true
+      - name: jobtitle
+        label: job title
+        type: string
+        required: true
+      - name: location
+        type: string
+        required: true
+      - name: email
+        type: string
+        required: true
+      - name: phone
+        type: string
+      - name: website
+        type: string
+      - name: linkedin
+        type: string
+      - name: github
+        type: string
+      - name: summary
+        type: text
+        required: true
+      - name: experience
+        type: object
+        list: true
+        fields:
+          - name: company
+            type: string
+            required: true
+          - name: title
+            type: string
+            required: true
+          - name: location
+            type: string
+          - name: start
+            type: string
+            required: true
+          - name: end
+            type: string
+            required: true
+          - name: highlights
+            type: string
+            list: true
+          - name: stack
+            type: string
+            list: true
+      - name: education
+        type: object
+        list: true
+        fields:
+          - name: institution
+            type: string
+            required: true
+          - name: degree
+            type: string
+            required: true
+          - name: location
+            type: string
+          - name: start
+            type: string
+            required: true
+          - name: end
+            type: string
+            required: true
+          - name: description
+            type: string
+      - name: skills
+        type: object
+        list: true
+        fields:
+          - name: category
+            type: string
+            required: true
+          - name: items
+            type: string
+            list: true
+      - name: certifications
+        type: object
+        list: true
+        fields:
+          - name: name
+            type: string
+            required: true
+          - name: issuer
+            type: string
+            required: true
+          - name: date
+            type: string
+            required: true
+          - name: url
+            type: string
+      - name: languages
+        type: object
+        list: true
+        fields:
+          - name: language
+            type: string
+            required: true
+          - name: level
+            type: string
+            required: true
 actions:
   - name: deploy-site
     label: Deploy site
