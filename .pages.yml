@@ -101,3 +101,13 @@ content:
     label: Resume
     type: file
     path: content/resume.md
+actions:
+  - name: deploy-site
+    label: Deploy site
+    description: Build and deploy the site to GitHub Pages
+    workflow: gh-pages.yml
+    fields:
+      - name: drafts
+        label: Include drafts
+        type: checkbox
+        default: false

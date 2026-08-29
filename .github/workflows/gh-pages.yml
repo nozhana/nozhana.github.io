@@ -1,10 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main  # Set a branch to deploy
-  pull_request:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload as JSON
+        required: true
+        type: string
 
 jobs:
   deploy:
@@ -17,6 +19,39 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Log Pages CMS payload
+        id: payload
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          PAYLOAD: ${{ github.event.inputs.payload }}
+        run: |
+          ACTION_LABEL=$(jq -r '.action.label // .action.name // "n/a"' <<< "$PAYLOAD")
+          TRIGGER_TYPE=$(jq -r '.triggerType // "n/a"' <<< "$PAYLOAD")
+          TRIGGERED_AT=$(jq -r '.triggeredAt // "n/a"' <<< "$PAYLOAD")
+          TRIGGERED_BY_NAME=$(jq -r '.triggeredBy.name // "n/a"' <<< "$PAYLOAD")
+          TRIGGERED_BY_USER=$(jq -r '.triggeredBy.githubUsername // "n/a"' <<< "$PAYLOAD")
+          REPO_OWNER=$(jq -r '.repository.owner // "n/a"' <<< "$PAYLOAD")
+          REPO_NAME=$(jq -r '.repository.repo // "n/a"' <<< "$PAYLOAD")
+          REPO_REF=$(jq -r '.repository.ref // "n/a"' <<< "$PAYLOAD")
+          CONTEXT_TYPE=$(jq -r '.context.type // "n/a"' <<< "$PAYLOAD")
+          CONTEXT_NAME=$(jq -r '.context.name // "n/a"' <<< "$PAYLOAD")
+          CONTEXT_PATH=$(jq -r '.context.path // "n/a"' <<< "$PAYLOAD")
+          DRAFTS=$(jq -r '.inputs.drafts // false' <<< "$PAYLOAD")
+
+          echo "Action: $ACTION_LABEL"
+          echo "Trigger type: $TRIGGER_TYPE"
+          echo "Triggered at: $TRIGGERED_AT"
+          echo "Triggered by: $TRIGGERED_BY_NAME (@$TRIGGERED_BY_USER)"
+          echo "Repository: $REPO_OWNER/$REPO_NAME@$REPO_REF"
+          echo "Context: $CONTEXT_TYPE $CONTEXT_NAME ($CONTEXT_PATH)"
+          echo "Drafts requested: $DRAFTS"
+
+          if [ "$DRAFTS" = "true" ]; then
+            echo "drafts_flag=-D" >> "$GITHUB_OUTPUT"
+          else
+            echo "drafts_flag=" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
@@ -24,7 +59,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify ${{ steps.payload.outputs.drafts_flag }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
