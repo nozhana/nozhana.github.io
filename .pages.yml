@@ -126,6 +126,8 @@ content:
               label: In Progress
             - name: completed
               label: Completed
+      - name: body
+        type: rich-text
   - name: resume
     label: Resume
     type: file
