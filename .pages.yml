@@ -18,6 +18,7 @@ content:
         label: Tutorials
         type: collection
         path: content/posts/tutorials
+        exclude: ["_index.md"]
         fields:
           - name: title
             type: string
@@ -47,6 +48,7 @@ content:
         label: Private Posts
         type: collection
         path: content/posts/privates
+        exclude: ["_index.md"]
         fields:
           - name: title
             type: string
@@ -78,6 +80,7 @@ content:
     label: Projects
     type: collection
     path: content/projects
+    exclude: ["_index.md"]
     fields:
       - name: title
         type: string
