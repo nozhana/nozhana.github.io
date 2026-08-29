@@ -14,7 +14,7 @@ tags:
   - PDFKit
 categories:
   - projects
-cover: "images/navaar.png"
+cover: "/images/navaar.png"
 link: "https://navaar.ir"
 status: "completed"
 ---

@@ -1,4 +1,14 @@
-media: media
+media:
+  - name: images
+    label: Images
+    input: media/images
+    output: /images
+    categories: [image]
+  - name: files
+    label: Files
+    input: media/files
+    output: /files
+    categories: [document, image]
 content:
   - name: posts
     label: Posts
@@ -95,6 +105,8 @@ content:
         list: true
       - name: cover
         type: image
+        options:
+          media: images
       - name: link
         type: string
         required: true

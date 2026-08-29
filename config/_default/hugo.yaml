@@ -76,4 +76,22 @@ module:
     min: 0.158.0
   imports:
     - path: github.com/tom2almighty/hugo-narrow
+  mounts:
+    - source: archetypes
+      target: archetypes
+    - source: assets
+      target: assets
+    - source: content
+      target: content
+    - source: data
+      target: data
+    - source: i18n
+      target: i18n
+    - source: layouts
+      target: layouts
+    # media/ is the single source of truth for images, favicon, and resume,
+    # managed by the Pages CMS media picker; mounted as static so it publishes
+    # verbatim to the site root (e.g. media/images/logo.svg -> /images/logo.svg).
+    - source: media
+      target: static
 
