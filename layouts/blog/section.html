@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main class="page__main list">
+    <header class="list__header{{ if .Params.image }} list__header--image{{ end }}"{{ with .Params.image }} style="background-image: url({{ .source }});"{{ end }}>
+        <div class="sectionlist__titlebox">
+            <h1 class="sectionlist__title">{{ .Title }}</h1>
+            {{ with .Summary }}<p class="sectionlist__description">{{ . | plainify | safeHTML }}</p>{{ end }}
+        </div>
+        {{ with .Params.image.credit }}<aside class="list__header-image-credit">{{ . | markdownify }}</aside>{{ end }}
+    </header>
+
+    <div class="list__entries">
+        {{ range .Data.Pages }}
+        <article class="list__entry entry">
+            <h2 class="entry__title"><a href="{{ .Permalink }}#article-header">{{ .Title }}</a></h2>
+            <div class="entry__placement"><time datetime="{{ .Date.Format "2006-01-02T15:04Z07:00" }}">{{ .Date.Format "January 2, 2006 15:04" }} {{ if isset .Params "timezone" }}{{ .Params.timezone }}{{ else }}{{ .Date.Format "MST" }}{{ end }}</time>{{ with .Params.location }} in {{ . }}{{ end }}</div>
+
+            <div class="entry__summary text">
+                {{ .Summary | plainify | safeHTML }}
+            </div>
+        </article>
+        {{ end }}
+    </div>
+</main>
+{{ end }}
