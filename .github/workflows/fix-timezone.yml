@@ -1,0 +1,87 @@
+name: Fix post timezones
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload as JSON
+        required: true
+        type: string
+
+jobs:
+  fix-timezone:
+    runs-on: ubuntu-22.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log Pages CMS payload
+        id: payload
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          PAYLOAD: ${{ github.event.inputs.payload }}
+        run: |
+          ACTION_LABEL=$(jq -r '.action.label // .action.name // "n/a"' <<< "$PAYLOAD")
+          TRIGGER_TYPE=$(jq -r '.triggerType // "n/a"' <<< "$PAYLOAD")
+          TRIGGERED_AT=$(jq -r '.triggeredAt // "n/a"' <<< "$PAYLOAD")
+          TRIGGERED_BY_NAME=$(jq -r '.triggeredBy.name // "n/a"' <<< "$PAYLOAD")
+          TRIGGERED_BY_USER=$(jq -r '.triggeredBy.githubUsername // "n/a"' <<< "$PAYLOAD")
+          REPO_OWNER=$(jq -r '.repository.owner // "n/a"' <<< "$PAYLOAD")
+          REPO_NAME=$(jq -r '.repository.repo // "n/a"' <<< "$PAYLOAD")
+          REPO_REF=$(jq -r '.repository.ref // "n/a"' <<< "$PAYLOAD")
+          CONTEXT_TYPE=$(jq -r '.context.type // "n/a"' <<< "$PAYLOAD")
+          CONTEXT_NAME=$(jq -r '.context.name // "n/a"' <<< "$PAYLOAD")
+          CONTEXT_PATH=$(jq -r '.context.path // "n/a"' <<< "$PAYLOAD")
+          TIMEZONE=$(jq -r '.inputs.timezone // ""' <<< "$PAYLOAD")
+
+          echo "Action: $ACTION_LABEL"
+          echo "Trigger type: $TRIGGER_TYPE"
+          echo "Triggered at: $TRIGGERED_AT"
+          echo "Triggered by: $TRIGGERED_BY_NAME (@$TRIGGERED_BY_USER)"
+          echo "Repository: $REPO_OWNER/$REPO_NAME@$REPO_REF"
+          echo "Context: $CONTEXT_TYPE $CONTEXT_NAME ($CONTEXT_PATH)"
+          echo "Timezone override requested: ${TIMEZONE:-<none>}"
+
+          echo "timezone=$TIMEZONE" >> "$GITHUB_OUTPUT"
+
+      # Pages CMS always writes post dates with a +00:00 offset regardless of
+      # the timezone the editor actually meant (a known Pages CMS bug), so
+      # this repairs any not-yet-fixed dates and commits directly to main
+      # without building or deploying the site.
+      - name: Fix post timezone
+        env:
+          TIMEZONE: ${{ steps.payload.outputs.timezone }}
+        run: |
+          if [ -z "$TIMEZONE" ]; then
+            echo "No timezone provided, nothing to fix."
+            exit 0
+          fi
+
+          if ! [[ "$TIMEZONE" =~ ^[+-][0-9]{2}:[0-9]{2}$ ]]; then
+            echo "Ignoring invalid timezone override: $TIMEZONE"
+            exit 0
+          fi
+
+          MATCHES=$(grep -rlE '^date: .*\+00:00$' content || true)
+          if [ -z "$MATCHES" ]; then
+            echo "No dates with +00:00 offset found, nothing to fix."
+            exit 0
+          fi
+
+          echo "Fixing timezone offset to $TIMEZONE in:"
+          echo "$MATCHES"
+
+          echo "$MATCHES" | while IFS= read -r file; do
+            sed -i -E "s/^date: (.*)\+00:00\$/date: \1${TIMEZONE}/" "$file"
+          done
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content
+          if git diff --cached --quiet; then
+            echo "No changes after fix, skipping commit."
+          else
+            git commit -m "fix: correct Pages CMS timezone offset to ${TIMEZONE}"
+            git push
+          fi

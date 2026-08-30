@@ -324,3 +324,16 @@ actions:
         pattern:
           regex: "^[+-][0-9]{2}:[0-9]{2}$"
           message: "Use the format +HH:mm or -HH:mm, e.g. +03:30"
+  - name: fix-timezone
+    label: Fix post timezones
+    description: Rewrite post dates still stuck at Pages CMS's +00:00 default offset and commit to main, without building or deploying.
+    workflow: fix-timezone.yml
+    fields:
+      - name: timezone
+        label: Fix timezone offset
+        description: Timezone offset to apply to any post dates still at +00:00 (e.g. +03:30).
+        type: text
+        required: true
+        pattern:
+          regex: "^[+-][0-9]{2}:[0-9]{2}$"
+          message: "Use the format +HH:mm or -HH:mm, e.g. +03:30"
