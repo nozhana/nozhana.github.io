@@ -61,8 +61,18 @@ jobs:
       # The well-traveled theme's SCSS uses @use module syntax, which only
       # Dart Sass supports (Hugo Extended's bundled LibSass is deprecated
       # and can't parse it), so the blog subsite build needs it on PATH.
+      # `npm install -g sass` installs the JS wrapper package, not the real
+      # `dart-sass` executable Hugo's dartsass transpiler execs directly -
+      # that mismatch is what threw "unexpected EOF when executing sass".
+      # Fetch the actual binary release instead, per Hugo's own docs.
       - name: Install Dart Sass
-        run: npm install -g sass
+        env:
+          DART_SASS_VERSION: 1.103.1
+        run: |
+          curl -sfL -o "${{ runner.temp }}/dart-sass.tar.gz" \
+            "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          tar -C "${{ runner.temp }}" -xf "${{ runner.temp }}/dart-sass.tar.gz"
+          echo "${{ runner.temp }}/dart-sass" >> "${GITHUB_PATH}"
 
       # Build the main site first, then the blog subsite. The blog
       # environment's publishDir (public/blog) nests inside the main
