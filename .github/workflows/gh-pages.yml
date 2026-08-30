@@ -58,8 +58,24 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
-        run: hugo --minify ${{ steps.payload.outputs.drafts_flag }}
+      # The well-traveled theme's SCSS uses @use module syntax, which only
+      # Dart Sass supports (Hugo Extended's bundled LibSass is deprecated
+      # and can't parse it), so the blog subsite build needs it on PATH.
+      - name: Install Dart Sass
+        run: npm install -g sass
+
+      # Build the main site first, then the blog subsite. The blog
+      # environment's publishDir (public/blog) nests inside the main
+      # site's publishDir (public), so the second build merges into the
+      # first automatically. --cleanDestinationDir on the blog build
+      # scopes cleaning to public/blog only, clearing any stray output
+      # left by the main build's own "blog" content section without
+      # touching the rest of public/.
+      - name: Build main site
+        run: hugo -e main --minify --cleanDestinationDir ${{ steps.payload.outputs.drafts_flag }}
+
+      - name: Build blog subsite
+        run: hugo -e blog --minify --cleanDestinationDir ${{ steps.payload.outputs.drafts_flag }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

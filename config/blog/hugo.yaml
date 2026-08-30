@@ -1,0 +1,51 @@
+baseURL: https://nozhana.github.io/blog
+title: Exploratorium
+theme: "well-traveled"
+
+contentDir: content/blog
+publishDir: public/blog
+staticDir: media/blog
+
+# Name of the main author
+author: "Nozhan Amiri"
+# Copyright statement used in the footer
+copyright: 'Snapshots by <a href="https://nozhana.github.io/">Nozhan Amiri</a>.<br/>All content is under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International License</a>.'
+params:
+  # Relative path to the logo image
+  logo: files/logo.svg
+  favicon:
+    # Path to the favicon image
+    image: files/favicon.svg
+    # Mime type of the favicon image
+    type: image/svg
+  # Description used in the main page's META tag
+  description: "Stories from extended travels, endeavored by Nozhan Amiri. Highly opinionated. Mildly biased. A mixture of intersecting thoughts from our hearts and minds."
+  # Content for the 404 error page
+  error404:
+    # Title for the page
+    title: Lost a page?
+    # Text for the page
+    text: We couldn't find anything under the address you requested. You may want to start from the <a href="/">homepage</a> or go back and try another link.
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.158.0
+  mounts:
+    - source: archetypes/blog
+      target: archetypes
+    - source: assets/blog
+      target: assets
+    - source: content/blog
+      target: content
+    - source: data/blog
+      target: data
+    - source: i18n/blog
+      target: i18n
+    - source: layouts/blog
+      target: layouts
+    # media/ is the single source of truth for images, favicon, and resume,
+    # managed by the Pages CMS media picker; mounted as static so it publishes
+    # verbatim to the site root (e.g. media/images/logo.svg -> /images/logo.svg).
+    - source: media/blog
+      target: static

@@ -1,0 +1,7 @@
+<header class="hero">
+    {{ with .Site.Params.logo -}}
+    <img class="hero__logo" src="{{ . }}" alt="">
+    {{- end }}
+    <h1 class="hero__title">{{ .Site.Title }}</h1>
+    <p class="hero__description">A visual journal showcasing my numerous expeditions.</p>
+</header>

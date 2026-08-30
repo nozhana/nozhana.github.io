@@ -1,0 +1,32 @@
+@use "variables";
+
+.hero {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+
+    &__logo {
+        height: 6rem;
+        margin-bottom: 1.2rem;
+    }
+
+    &__title {
+        font: {
+            size: 3rem;
+            weight: 500;
+        }
+        margin: 0;
+    }
+
+    &__description {
+        color: variables.$secondary-color;
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        max-width: variables.$text-width;
+    }
+}

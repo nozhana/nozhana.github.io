@@ -1,0 +1,27 @@
+@use "sass:meta";
+@use "variables";
+@use "mixins";
+@use "normalize";
+
+html {
+    font: {
+        family: variables.$default-font;
+        size: 18px;
+    }
+}
+
+@include meta.load-css("page");
+@include meta.load-css("section");
+@include meta.load-css("entry");
+@include meta.load-css("list");
+@include meta.load-css("grid");
+@include meta.load-css("article");
+@include meta.load-css("destination");
+@include meta.load-css("text");
+@include meta.load-css("tags");
+@include meta.load-css("navigator");
+@include meta.load-css("header");
+@include meta.load-css("hero");
+@include meta.load-css("pages-nav");
+@include meta.load-css("footer");
+@include meta.load-css("jumbotron");

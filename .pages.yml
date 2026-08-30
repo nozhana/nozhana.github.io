@@ -9,6 +9,16 @@ media:
     input: media/files
     output: /files
     categories: [document, image]
+  - name: blog-images
+    label: Blog Images
+    input: media/blog/images
+    output: /images
+    categories: [image]
+  - name: blog-files
+    label: Blog Files
+    input: media/blog/files
+    output: /files
+    categories: [document, image]
 content:
   - name: posts
     label: Posts
@@ -135,6 +145,51 @@ content:
               label: Completed
       - name: body
         type: rich-text
+  - name: blog
+    label: Blog
+    type: collection
+    path: content/blog
+    exclude: ["_index.md"]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: image
+        label: Image
+        type: image
+        required: true
+        options:
+          media: blog-images
+      - name: summary
+        type: text
+        required: true
+      - name: date
+        type: date
+        required: true
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm:ssXXX
+      - name: draft
+        type: boolean
+        default: true
+        required: true
+      - name: location
+        type: string
+      - name: timezone
+        type: string
+      - name: tags
+        type: string
+        list: true
+      - name: destination
+        type: object
+        fields:
+          - name: osm
+            label: OpenStreetMap coordinates (lat/lon)
+            type: string
+      - name: body
+        type: rich-text
+        options:
+          media: blog-images
   - name: resume
     label: Resume
     type: file
