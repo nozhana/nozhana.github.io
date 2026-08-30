@@ -8,11 +8,10 @@ title: Nozhan Amiri
 hasCJKLanguage: true
 enableEmoji: true
 
-
 # Main Section Configuration (Optional)
 # If not configured, Hugo will automatically select the section with the most pages
 # This configuration affects functions such as recent articles on the homepage, search index, and archive pages
-mainSections: ["posts"]  # Multiple values can be configured, e.g. ["posts", "blog", "articles"]
+mainSections: ["posts"] # Multiple values can be configured, e.g. ["posts", "blog", "articles"]
 
 permalinks:
   posts: /posts/:slug/
@@ -23,7 +22,6 @@ permalinks:
 pagination:
   pagerSize: 6
   path: "page"
-
 
 taxonomies:
   category: categories
@@ -49,8 +47,8 @@ markup:
         subscript:
           enable: true
         superscript:
-          enable: true   
-      strikethrough: true 
+          enable: true
+      strikethrough: true
   highlight:
     codeFences: true
     guessSyntax: false
@@ -94,4 +92,3 @@ module:
     # verbatim to the site root (e.g. media/images/logo.svg -> /images/logo.svg).
     - source: media
       target: static
-
