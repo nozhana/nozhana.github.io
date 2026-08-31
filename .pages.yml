@@ -307,6 +307,8 @@ content:
           - name: level
             type: string
             required: true
+      - name: body
+        type: rich-text
 actions:
   - name: deploy-site
     label: Deploy site
